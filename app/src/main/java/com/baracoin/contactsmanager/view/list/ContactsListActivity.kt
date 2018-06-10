@@ -1,10 +1,11 @@
-package com.baracoin.contactsmanager
+package com.baracoin.contactsmanager.view.list
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.baracoin.contactsmanager.R
 
 import kotlinx.android.synthetic.main.activity_contacts_list.*
 
