@@ -4,6 +4,11 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+project.ext {
+    arch_version = '1.1.1'
+    daggerVersion = "2.13"
+}
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -31,4 +36,31 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //timber and 310
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+    compile 'com.jakewharton.timber:timber:4.6.0'
+
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    //architecture_components
+    compile "android.arch.lifecycle:extensions:${arch_version}"
+    compile "android.arch.persistence.room:runtime:1.1.0-alpha1"
+
+    //dagger
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    implementation "com.google.dagger:dagger-android:${daggerVersion}"
+    implementation "com.google.dagger:dagger-android-support:${daggerVersion}"
+
+    // if you use the support libraries
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${daggerVersion}"
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+
+    annotationProcessor "android.arch.lifecycle:compiler:${arch_version}"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.0-alpha1"
+
+    //Java RX
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
 }
