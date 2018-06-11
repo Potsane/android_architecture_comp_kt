@@ -1,6 +1,7 @@
 package com.baracoin.contactsmanager.database
 
 import android.arch.persistence.room.Database
+import android.arch.persistence.room.RoomDatabase
 import com.baracoin.contactsmanager.database.dao.ContactDao
 import com.baracoin.contactsmanager.entity.Contact
 
@@ -9,7 +10,7 @@ import com.baracoin.contactsmanager.entity.Contact
  */
 
 @Database(entities = arrayOf(Contact::class), version = 1)
-abstract class ContactManagementDatabase {
+abstract class ContactManagementDatabase : RoomDatabase() {
 
     abstract fun contactDao(): ContactDao
 }

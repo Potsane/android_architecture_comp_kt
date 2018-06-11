@@ -1,23 +1,25 @@
 package com.baracoin.contactsmanager.repository
 
 import android.arch.lifecycle.LiveData
+import com.baracoin.contactsmanager.database.dao.ContactDao
 import com.baracoin.contactsmanager.entity.Contact
 import io.reactivex.Completable
+import javax.inject.Inject
 
 /**
  * Created by PMohale on 2018/06/10.
  */
-class ContactRepositoryImpl : ContactRepository {
+class ContactRepositoryImpl @Inject constructor(private val contactDao: ContactDao) : ContactRepository {
 
     override fun deleteContact(contact: Contact): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Completable.fromAction { contactDao.deleteContact(contact) }
     }
 
     override fun addContact(contact: Contact): Completable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Completable.fromAction { contactDao.addContact(contact) }
     }
 
     override fun getAllContacts(): LiveData<List<Contact>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return contactDao.getAllContacts()
     }
 }
