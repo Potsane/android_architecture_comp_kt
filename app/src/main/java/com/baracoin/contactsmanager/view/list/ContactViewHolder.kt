@@ -8,5 +8,5 @@ import android.view.View
  */
 class ContactViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    
+
 }
