@@ -1,5 +1,6 @@
 package com.baracoin.contactsmanager.injection
 
+import android.arch.lifecycle.ViewModelProvider
 import com.baracoin.contactsmanager.view.add.AddContactViewModel
 import com.baracoin.contactsmanager.view.list.ContactListViewModel
 import dagger.Binds
@@ -20,6 +21,10 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(ContactListViewModel::class)
+    @ViewModelKey(AddContactViewModel::class)
     abstract fun bindAddContactViewModel(addContactViewModel: AddContactViewModel): AddContactViewModel
+
+
+    @Binds
+    abstract fun bindViewModelFactory(viewModelFactory: ContactsManagerViewModelFactory): ViewModelProvider.Factory
 }

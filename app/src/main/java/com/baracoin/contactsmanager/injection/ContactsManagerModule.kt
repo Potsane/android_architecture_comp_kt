@@ -18,6 +18,8 @@ import javax.inject.Singleton
 @Module(includes = [(AndroidSupportInjectionModule::class), (ViewModelModule::class)])
 open class ContactsManagerModule {
 
+
+    @Provides
     fun providesContactRepository(contactDao: ContactDao): ContactRepository {
         return ContactRepositoryImpl(contactDao)
     }

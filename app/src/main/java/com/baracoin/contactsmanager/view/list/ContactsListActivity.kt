@@ -1,6 +1,7 @@
 package com.baracoin.contactsmanager.view.list
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +13,7 @@ import android.view.MenuItem
 import android.view.View
 import com.baracoin.contactsmanager.R
 import com.baracoin.contactsmanager.entity.Contact
-import com.baracoin.contactsmanager.injection.ContentsManagerViewModelFactory
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_contacts_list.*
 import javax.inject.Inject
 
@@ -21,10 +22,11 @@ class ContactsListActivity : AppCompatActivity() {
     private lateinit var contactListAdaptor: ContactsListAdaptor
     private lateinit var contactListViewModel: ContactListViewModel
     @Inject
-    lateinit var contactsManagerViewModelFactory: ContentsManagerViewModelFactory
+    lateinit var  viewModelFactory: ViewModelProvider.Factory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts_list)
         setSupportActionBar(toolbar)
@@ -34,7 +36,7 @@ class ContactsListActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        contactListViewModel = ViewModelProviders.of(this, contactsManagerViewModelFactory).get(ContactListViewModel::class.java)
+        contactListViewModel = ViewModelProviders.of(this, viewModelFactory).get(ContactListViewModel::class.java)
 
         contactListViewModel.getAllContacts().observe(this, Observer { response ->
             if (response != null) {

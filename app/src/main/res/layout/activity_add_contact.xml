@@ -100,6 +100,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
+                android:onClick="addContact"
                 android:text="Save contact"
                 android:textColor="@android:color/holo_orange_dark" />
 

@@ -12,7 +12,7 @@ import dagger.android.support.HasSupportFragmentInjector
 /**
  * Created by PMohale on 2018/06/11.
  */
-class AppInjector {
+object AppInjector {
 
     fun init(contactsManagerApplication: ContactsManagerApplication) {
         contactsManagerApplication

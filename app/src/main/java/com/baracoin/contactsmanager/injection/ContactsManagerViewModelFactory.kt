@@ -10,7 +10,7 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class ContentsManagerViewModelFactory @Inject constructor(
+class ContactsManagerViewModelFactory @Inject constructor(
         private val viewModelProviders: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
